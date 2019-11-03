@@ -1,7 +1,7 @@
 #!/bin/bash
 DOMAINLIST="$(pwd)/domains.list"
 MAIL="/usr/bin/mail"
-EMAILS="doug@primitivesocial.com"
+EMAILS="$(pwd)/emails.list"
 
 OLDLOG="$(pwd)/monitordns.OLD"
 NEWLOG="$(pwd)/monitordns.CURRENT"
@@ -33,7 +33,7 @@ if [ -s $TEMPLOG ] ; then
 
     $MAIL -s "DNS status update" $EMAIL < $TEMPLOG
 
-  done
+  done < $EMAILS
 
 fi
 
